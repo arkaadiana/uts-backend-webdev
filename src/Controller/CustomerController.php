@@ -1,5 +1,5 @@
 <?php
-require_once '../src/Model/Customers.php';
+require_once __DIR__ . '/../Model/Customers.php';
 
 
 class CustomerController {
