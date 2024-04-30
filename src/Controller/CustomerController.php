@@ -1,5 +1,6 @@
 <?php
-require_once 'Customers.php';
+require_once '../src/Model/Customers.php';
+
 
 class CustomerController {
     private $customerModel;

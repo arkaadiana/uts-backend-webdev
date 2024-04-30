@@ -1,5 +1,6 @@
 <?php
-require_once 'src/Model/Purchases.php';
+require_once '../src/Model/Purchases.php';
+
 
 class PurchaseController {
     private $purchaseModel;

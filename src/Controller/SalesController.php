@@ -1,5 +1,5 @@
 <?php
-require_once 'src/Model/Sales.php';
+require_once '../Model/Sales.php';
 
 class SalesController {
     private $salesModel;
