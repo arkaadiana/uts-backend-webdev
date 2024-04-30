@@ -1,5 +1,4 @@
 <?php
-
 include_once '../src/Controller/CustomerController.php';
 
 // Membuat instance dari CustomerController
@@ -35,12 +34,18 @@ $customers = $customerController->getAllCustomers();
     <table>
         <thead>
             <tr>
-                <th>ID Pelanggan</th>
-                <th>Nama Depan</th>
-                <th>Nama Belakang</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Nomor Telepon</th>
-                <th>Alamat</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Occupation</th>
+                <th>Pekerjaan</th>
+                <th>Date of Birth</th>
+                <th>Monthly Income</th>
+                <th>Credit Score</th>
+                <th>Martial Status</th>
             </tr>
         </thead>
         <tbody>
@@ -52,7 +57,12 @@ $customers = $customerController->getAllCustomers();
                     <td><?= $customer['email']; ?></td>
                     <td><?= $customer['phone_number']; ?></td>
                     <td><?= $customer['address']; ?></td>
-                    
+                    <td><?= $customer['education']; ?></td>
+                    <td><?= $customer['occupation']; ?></td>
+                    <td><?= $customer['date_of_birth']; ?></td>
+                    <td><?= $customer['monthly_income']; ?></td>
+                    <td><?= $customer['credit_score']; ?></td>
+                    <td><?= $customer['marital_status']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
