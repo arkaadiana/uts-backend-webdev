@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>XYZ Sales API End Point</h1>
 </body>
 </html>
