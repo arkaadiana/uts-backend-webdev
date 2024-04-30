@@ -13,13 +13,13 @@ class Sales {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getSaleById($id) {
+    public function getSalesById($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM sales WHERE order_id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addSale($data) {
+    public function addSales($data) {
         $stmt = $this->pdo->prepare("
             INSERT INTO sales 
             (product_name, product_description, gross_product_price, tax_per_product, quantity_purchased, gross_revenue, total_tax, net_revenue, product_category, sku_number, weight, color, size, rating, stock, sales_rep, address, zipcode, phone, email, loyalty_points, customer_id, country_id) 
@@ -54,7 +54,7 @@ class Sales {
         ]);
     }
 
-    public function updateSale($id, $data) {
+    public function updateSales($id, $data) {
         $stmt = $this->pdo->prepare("
             UPDATE sales SET 
             product_name = :product_name, 
@@ -111,7 +111,7 @@ class Sales {
         ]);
     }
 
-    public function deleteSale($id) {
+    public function deleteSales($id) {
         $stmt = $this->pdo->prepare("DELETE FROM sales WHERE order_id = :id");
         $stmt->execute(['id' => $id]);
     }

@@ -70,4 +70,6 @@ class Purchases {
         $stmt = $this->pdo->prepare("DELETE FROM purchases WHERE purchase_id = :id");
         $stmt->execute(['id' => $id]);
     }
+
+    
 }
