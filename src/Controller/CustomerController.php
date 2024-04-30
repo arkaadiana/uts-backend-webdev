@@ -1,5 +1,6 @@
 <?php
-require_once 'Customers.php';
+require_once __DIR__ . '/../Model/Customers.php';
+
 
 class CustomerController {
     private $customerModel;

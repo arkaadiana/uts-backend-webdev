@@ -1,5 +1,6 @@
 <?php
-include 'config/database.php';
+require_once __DIR__ . '/../../config/database.php';
+
 
 class Customers {
     private $pdo;
@@ -22,9 +23,9 @@ class Customers {
     public function addCustomer($data) {
         $stmt = $this->pdo->prepare("
             INSERT INTO customers 
-            (first_name, last_name, gender, email, phone_number, address, education, occupation, date_of_birth, monthly_income, credit_score, marital_status, country_id) 
+            (first_name, last_name, gender, email, phone_number, address, education, occupation, date_of_birth, monthly_income, credit_score, marital_status) 
             VALUES 
-            (:first_name, :last_name, :gender, :email, :phone_number, :address, :education, :occupation, :date_of_birth, :monthly_income, :credit_score, :marital_status, :country_id)
+            (:first_name, :last_name, :gender, :email, :phone_number, :address, :education, :occupation, :date_of_birth, :monthly_income, :credit_score, :marital_status)
         ");
 
         $stmt->execute([
@@ -40,7 +41,6 @@ class Customers {
             'monthly_income' => $data['monthly_income'],
             'credit_score' => $data['credit_score'],
             'marital_status' => $data['marital_status'],
-            'country_id' => $data['country_id']
         ]);
     }
 
@@ -59,7 +59,6 @@ class Customers {
             monthly_income = :monthly_income, 
             credit_score = :credit_score, 
             marital_status = :marital_status, 
-            country_id = :country_id 
             WHERE customer_id = :id
         ");
 
@@ -77,7 +76,6 @@ class Customers {
             'monthly_income' => $data['monthly_income'],
             'credit_score' => $data['credit_score'],
             'marital_status' => $data['marital_status'],
-            'country_id' => $data['country_id']
         ]);
     }
 
