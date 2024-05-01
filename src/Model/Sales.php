@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 
-
 class Sales {
     private $pdo;
 
@@ -14,13 +13,13 @@ class Sales {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getSalesById($id) {
+    public function getSalesById($orderId) {
         $stmt = $this->pdo->prepare("SELECT * FROM sales WHERE order_id = :id");
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['id' => $orderId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addSales($data) {
+    public function addSales($salesData) {
         $stmt = $this->pdo->prepare("
             INSERT INTO sales 
             (product_name, product_description, gross_product_price, tax_per_product, quantity_purchased, gross_revenue, total_tax, net_revenue, product_category, sku_number, weight, color, size, rating, stock, sales_rep, address, zipcode, phone, email, loyalty_points, customer_id, country_id) 
@@ -29,33 +28,33 @@ class Sales {
         ");
 
         $stmt->execute([
-            'product_name' => $data['product_name'],
-            'product_description' => $data['product_description'],
-            'gross_product_price' => $data['gross_product_price'],
-            'tax_per_product' => $data['tax_per_product'],
-            'quantity_purchased' => $data['quantity_purchased'],
-            'gross_revenue' => $data['gross_revenue'],
-            'total_tax' => $data['total_tax'],
-            'net_revenue' => $data['net_revenue'],
-            'product_category' => $data['product_category'],
-            'sku_number' => $data['sku_number'],
-            'weight' => $data['weight'],
-            'color' => $data['color'],
-            'size' => $data['size'],
-            'rating' => $data['rating'],
-            'stock' => $data['stock'],
-            'sales_rep' => $data['sales_rep'],
-            'address' => $data['address'],
-            'zipcode' => $data['zipcode'],
-            'phone' => $data['phone'],
-            'email' => $data['email'],
-            'loyalty_points' => $data['loyalty_points'],
-            'customer_id' => $data['customer_id'],
-            'country_id' => $data['country_id']
+            'product_name' => $salesData['product_name'],
+            'product_description' => $salesData['product_description'],
+            'gross_product_price' => $salesData['gross_product_price'],
+            'tax_per_product' => $salesData['tax_per_product'],
+            'quantity_purchased' => $salesData['quantity_purchased'],
+            'gross_revenue' => $salesData['gross_revenue'],
+            'total_tax' => $salesData['total_tax'],
+            'net_revenue' => $salesData['net_revenue'],
+            'product_category' => $salesData['product_category'],
+            'sku_number' => $salesData['sku_number'],
+            'weight' => $salesData['weight'],
+            'color' => $salesData['color'],
+            'size' => $salesData['size'],
+            'rating' => $salesData['rating'],
+            'stock' => $salesData['stock'],
+            'sales_rep' => $salesData['sales_rep'],
+            'address' => $salesData['address'],
+            'zipcode' => $salesData['zipcode'],
+            'phone' => $salesData['phone'],
+            'email' => $salesData['email'],
+            'loyalty_points' => $salesData['loyalty_points'],
+            'customer_id' => $salesData['customer_id'],
+            'country_id' => $salesData['country_id']
         ]);
     }
 
-    public function updateSales($id, $data) {
+    public function updateSales($orderId, $salesData) {
         $stmt = $this->pdo->prepare("
             UPDATE sales SET 
             product_name = :product_name, 
@@ -85,35 +84,35 @@ class Sales {
         ");
 
         $stmt->execute([
-            'id' => $id,
-            'product_name' => $data['product_name'],
-            'product_description' => $data['product_description'],
-            'gross_product_price' => $data['gross_product_price'],
-            'tax_per_product' => $data['tax_per_product'],
-            'quantity_purchased' => $data['quantity_purchased'],
-            'gross_revenue' => $data['gross_revenue'],
-            'total_tax' => $data['total_tax'],
-            'net_revenue' => $data['net_revenue'],
-            'product_category' => $data['product_category'],
-            'sku_number' => $data['sku_number'],
-            'weight' => $data['weight'],
-            'color' => $data['color'],
-            'size' => $data['size'],
-            'rating' => $data['rating'],
-            'stock' => $data['stock'],
-            'sales_rep' => $data['sales_rep'],
-            'address' => $data['address'],
-            'zipcode' => $data['zipcode'],
-            'phone' => $data['phone'],
-            'email' => $data['email'],
-            'loyalty_points' => $data['loyalty_points'],
-            'customer_id' => $data['customer_id'],
-            'country_id' => $data['country_id']
+            'id' => $orderId,
+            'product_name' => $salesData['product_name'],
+            'product_description' => $salesData['product_description'],
+            'gross_product_price' => $salesData['gross_product_price'],
+            'tax_per_product' => $salesData['tax_per_product'],
+            'quantity_purchased' => $salesData['quantity_purchased'],
+            'gross_revenue' => $salesData['gross_revenue'],
+            'total_tax' => $salesData['total_tax'],
+            'net_revenue' => $salesData['net_revenue'],
+            'product_category' => $salesData['product_category'],
+            'sku_number' => $salesData['sku_number'],
+            'weight' => $salesData['weight'],
+            'color' => $salesData['color'],
+            'size' => $salesData['size'],
+            'rating' => $salesData['rating'],
+            'stock' => $salesData['stock'],
+            'sales_rep' => $salesData['sales_rep'],
+            'address' => $salesData['address'],
+            'zipcode' => $salesData['zipcode'],
+            'phone' => $salesData['phone'],
+            'email' => $salesData['email'],
+            'loyalty_points' => $salesData['loyalty_points'],
+            'customer_id' => $salesData['customer_id'],
+            'country_id' => $salesData['country_id']
         ]);
     }
 
-    public function deleteSales($id) {
+    public function deleteSales($orderId) {
         $stmt = $this->pdo->prepare("DELETE FROM sales WHERE order_id = :id");
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['id' => $orderId]);
     }
 }
