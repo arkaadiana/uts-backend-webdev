@@ -20,13 +20,13 @@ class CustomerController {
     }
 
     // Method untuk menambahkan data customer baru
-    public function addCustomer($data) {
-        return $this->customerModel->addCustomer($data);
+    public function addCustomer($customerData) {
+        return $this->customerModel->addCustomer($customerData);
     }
 
     // Method untuk memperbarui data customer berdasarkan ID
-    public function updateCustomer($customerId, $data) {
-        return $this->customerModel->updateCustomer($customerId, $data);
+    public function updateCustomer($customerId, $customerData) {
+        return $this->customerModel->updateCustomer($customerId, $customerData);
     }
 
     // Method untuk menghapus data customer berdasarkan ID

@@ -19,13 +19,13 @@ class SalesController {
     }
 
     // Method untuk menambahkan data penjualan baru
-    public function addSales($data) {
-        return $this->salesModel->addSales($data);
+    public function addSales($salesData) {
+        return $this->salesModel->addSales($salesData);
     }
 
     // Method untuk memperbarui data penjualan berdasarkan ID
-    public function updateSales($orderId, $data) {
-        return $this->salesModel->updateSales($orderId, $data);
+    public function updateSales($orderId, $salesData) {
+        return $this->salesModel->updateSales($orderId, $salesData);
     }
 
     // Method untuk menghapus data penjualan berdasarkan ID

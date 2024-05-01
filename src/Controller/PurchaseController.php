@@ -20,13 +20,13 @@ class PurchaseController {
     }
 
     // Method untuk menambahkan data pembelian baru
-    public function addPurchase($data) {
-        return $this->purchaseModel->addPurchase($data);
+    public function addPurchase($purchaseData) {
+        return $this->purchaseModel->addPurchase($purchaseData);
     }
 
     // Method untuk memperbarui data pembelian berdasarkan ID
-    public function updatePurchase($purchaseId, $data) {
-        return $this->purchaseModel->updatePurchase($purchaseId, $data);
+    public function updatePurchase($purchaseId, $purchaseData) {
+        return $this->purchaseModel->updatePurchase($purchaseId, $purchaseData);
     }
 
     // Method untuk menghapus data pembelian berdasarkan ID
