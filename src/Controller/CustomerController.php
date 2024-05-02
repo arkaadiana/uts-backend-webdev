@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../Model/Customers.php';
 
-
 class CustomerController {
     private $customerModel;
 
@@ -34,4 +33,3 @@ class CustomerController {
         return $this->customerModel->deleteCustomer($customerId);
     }
 }
-

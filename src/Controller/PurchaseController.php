@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../Model/Purchases.php';
 
-
 class PurchaseController {
     private $purchaseModel;
 
@@ -34,4 +33,3 @@ class PurchaseController {
         return $this->purchaseModel->deletePurchase($purchaseId);
     }
 }
-
